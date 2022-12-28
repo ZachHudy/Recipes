@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   currentPage: string;
 
-  setCurrentPage(page) {
+  setCurrentPage(page: string) {
     this.currentPage = page;
   }
 }
