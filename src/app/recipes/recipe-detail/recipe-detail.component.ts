@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -9,6 +9,8 @@ import { Recipe } from '../recipe.model';
 export class RecipeDetailComponent implements OnInit {
 
   recipe: Recipe = new Recipe('Make a selection', 'select a recipe on the left', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg')
+  @Input() selectedRecipe: Recipe;
+
   constructor() { }
 
   ngOnInit(): void {
