@@ -13,4 +13,8 @@ export class ShoppingListService{
         this.ingredients.push(ingData);
       }
 
+    getIngredients(){
+        return this.ingredients.slice();
+    }
+
 }
