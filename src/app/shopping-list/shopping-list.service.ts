@@ -12,11 +12,11 @@ export class ShoppingListService{
 
     onIngredientAdded(ingData: Ingredient) {
         this.ingredients.push(ingData);
+        this.ingredientsChanged.emit(this.ingredients.slice());
       }
 
     getIngredients(){
         return this.ingredients.slice();
-        this.ingredientsChanged.emit(this.ingredients.slice());
     }
 
 }
