@@ -15,4 +15,10 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addToShopping() {
+    for(let i: number = 0; i < this.recipe.ingredients.length; i++) {
+      this.shoppingListService.onIngredientAdded(this.recipe.ingredients[i]);
+    }
+  }
+
 }
