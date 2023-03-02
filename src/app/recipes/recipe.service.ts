@@ -20,4 +20,8 @@ export class RecipeService{
         return this.recipes.slice();
     }
 
+    getRecipe(i) {
+        return this.recipes[i];
+    }
+
 }
