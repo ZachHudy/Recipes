@@ -20,7 +20,7 @@ export class RecipeService{
         return this.recipes.slice();
     }
 
-    getRecipe(i) {
+    getRecipe(i: number) {
         return this.recipes[i];
     }
 
