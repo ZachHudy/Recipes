@@ -9,7 +9,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @ViewChild('nameInput', { static: true }) nameInput: ElementRef;
   @ViewChild('f') ingredientForm: NgForm;
 
   constructor(private shoppingListService: ShoppingListService) { }
@@ -17,10 +16,9 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addIngredient(amountInput: HTMLInputElement) {
-    const ingName = this.nameInput.nativeElement.value;
-    const ingAmount = Number(amountInput.value);
-    const newIngredient = new Ingredient(ingName, ingAmount);
+  addIngredient(f: NgForm) {
+    const value = f.value;
+    const newIngredient = new Ingredient(value.name, value.amount);
     this.shoppingListService.onIngredientAdded(newIngredient);
     console.log(this.ingredientForm);
   }
