@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -9,6 +10,7 @@ import { ShoppingListService } from '../shopping-list.service';
 })
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('nameInput', { static: true }) nameInput: ElementRef;
+  @ViewChild('f') ingredientForm: NgForm;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
