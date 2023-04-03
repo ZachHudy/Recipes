@@ -22,6 +22,7 @@ export class ShoppingEditComponent implements OnInit {
     const ingAmount = Number(amountInput.value);
     const newIngredient = new Ingredient(ingName, ingAmount);
     this.shoppingListService.onIngredientAdded(newIngredient);
+    console.log(this.ingredientForm);
   }
 
 }
