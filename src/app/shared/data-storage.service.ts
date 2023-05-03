@@ -13,4 +13,8 @@ export class DataStorageService {
             console.log(response);
         });
     }
+
+    fetchRecipes() {
+        this.http.get('https://ng-recipes-c61ea-default-rtdb.firebaseio.com/recipes.json');
+    }
 }
