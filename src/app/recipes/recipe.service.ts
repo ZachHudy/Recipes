@@ -16,7 +16,7 @@ export class RecipeService{
     //         new Ingredient('Meat', 1)
     //     ])
     //   ];
-    private recipes: Recipe[];
+    private recipes: Recipe[] = [];
 
     getRecipes() {
         return this.recipes.slice();
