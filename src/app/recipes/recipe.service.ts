@@ -7,15 +7,16 @@ import { Subject } from "rxjs";
 
 export class RecipeService{
     recipesChanged = new Subject<Recipe[]>;
-    private recipes: Recipe[] = [
-        new Recipe('First Test Recipe', 'This is a test', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
-            new Ingredient('Meat', 1),
-            new Ingredient('French Fries', 20)
-        ]), new Recipe('Second Test Recipe', 'This is another test', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
-            new Ingredient(' Buns', 2),
-            new Ingredient('Meat', 1)
-        ])
-      ];
+    // private recipes: Recipe[] = [
+    //     new Recipe('First Test Recipe', 'This is a test', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
+    //         new Ingredient('Meat', 1),
+    //         new Ingredient('French Fries', 20)
+    //     ]), new Recipe('Second Test Recipe', 'This is another test', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg', [
+    //         new Ingredient(' Buns', 2),
+    //         new Ingredient('Meat', 1)
+    //     ])
+    //   ];
+    private recipes: Recipe[];
 
     getRecipes() {
         return this.recipes.slice();
@@ -37,6 +38,11 @@ export class RecipeService{
 
     deleteRecipe(index: number) {
         this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
 
